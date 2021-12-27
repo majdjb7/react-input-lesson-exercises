@@ -9,13 +9,25 @@ class Exercise1 extends Component {
             age: ""
         }
     }
+    
+    showAlert = () => {
+        alert(`Come in ${this.state.name}, you're ${this.state.age} - that's good enough`)
+    }
+    
+    
+      handleInputChange = event => {
+          const {value, name} = event.target;    
+          this.setState({
+            [name]: value
+          });
+      }
 
     render() {
         return (
             <div>
-                <input id="name-input" />
-                <input id="age-input" />
-                <button>Go to Bar</button>
+                 <input id="name-input" name="name" onChange={this.handleInputChange}/>
+                <input id="age-input" name="age" onChange={this.handleInputChange}/>
+                <button onClick={this.showAlert}>Go to Bar</button>
             </div>
         );
     }
